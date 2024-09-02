@@ -9,6 +9,7 @@ You can install the package via npm:
 
 ```bash
 npm install react-hooks-simplified
+
 ```
 
 ## Available Hooks
