@@ -8,7 +8,7 @@ A collection of React hooks for interacting with various browser APIs. This libr
 You can install the package via npm:
 
 ```bash
-npm install react-browser-hooks
+npm install react-hooks-simplified
 ```
 
 ## Available Hooks
@@ -35,7 +35,7 @@ The `useBattery` hook provides information about the battery status of the devic
 ### Example
 
 ```jsx
-import { useBattery } from 'react-browser-hooks';
+import { useBattery } from 'react-hooks-simplified';
 
 const BatteryStatus = () => {
   const { battery, charging, level } = useBattery();
@@ -56,7 +56,7 @@ The `useGeolocation` hook provides information about the user's geographical loc
 ### Example
 
 ```jsx
-import { useGeolocation } from 'react-browser-hooks';
+import { useGeolocation } from 'react-hooks-simplified';
 
 const LocationDisplay = () => {
   const { position, error } = useGeolocation();
@@ -86,7 +86,7 @@ The `useClipboard` hook provides methods for interacting with the clipboard.
 ### Example
 
 ```jsx
-import { useClipboard } from 'react-browser-hooks';
+import { useClipboard } from 'react-hooks-simplified';
 
 const ClipboardComponent = () => {
   const { clipboardData, copyToClipboard, readClipboard, error } = useClipboard();
@@ -109,7 +109,7 @@ The `useNetwork` hook provides information about the network status of the brows
 ### Example
 
 ```jsx
-import { useNetwork } from 'react-browser-hooks';
+import { useNetwork } from 'react-hooks-simplified';
 
 const NetworkStatus = () => {
   const { networkInfo, isOnline } = useNetwork();
@@ -135,7 +135,7 @@ The `useMediaDevices` hook provides access to the media devices available on the
 ### Example
 
 ```jsx
-import { useMediaDevices } from 'react-browser-hooks';
+import { useMediaDevices } from 'react-hooks-simplified';
 
 const MediaDevicesList = () => {
   const { devices, error } = useMediaDevices();
@@ -160,7 +160,7 @@ The `useFullscreen` hook provides methods for handling fullscreen mode.
 ### Example
 
 ```jsx
-import { useFullscreen } from 'react-browser-hooks';
+import { useFullscreen } from 'react-hooks-simplified';
 import { useRef } from 'react';
 
 const FullscreenComponent = () => {
@@ -187,7 +187,7 @@ The `useSpeechSynthesis` hook provides methods for controlling the speech synthe
 ### Example
 
 ```jsx
-import { useSpeechSynthesis } from 'react-browser-hooks';
+import { useSpeechSynthesis } from 'react-hooks-simplified';
 
 const SpeakButton = () => {
   const { speak, cancel, speaking } = useSpeechSynthesis();
@@ -212,7 +212,7 @@ The `useLocalStorage` hook provides a way to interact with the browser's local s
 ### Example
 
 ```jsx
-import { useLocalStorage } from 'react-browser-hooks';
+import { useLocalStorage } from 'react-hooks-simplified';
 
 const NameSaver = () => {
   const [name, setName] = useLocalStorage('name', '');
@@ -227,6 +227,131 @@ const NameSaver = () => {
       <p>Stored Name: {name}</p>
     </div>
   );
+};
+```
+
+## `useIntersectionObserver` Hook
+
+The `useIntersectionObserver` hook provides information about the visibility of an element.
+
+### Example
+
+```jsx
+import { useRef } from 'react';
+import { useIntersectionObserver } from 'react-hooks-simplified';
+
+const IntersectionComponent = () => {
+  const ref = useRef(null);
+  const isIntersecting = useIntersectionObserver(ref);
+
+  return (
+    <div ref={ref}>
+      <p>{isIntersecting ? 'In view' : 'Out of view'}</p>
+    </div>
+  );
+};
+```
+
+## `useIdle` Hook
+
+The `useIdle` hook determines if the user is idle or active.
+
+### Example
+
+```jsx
+import { useIdle } from 'react-hooks-simplified';
+
+const IdleComponent = () => {
+  const isIdle = useIdle(5000); // User is idle after 5 seconds of inactivity
+
+  return <p>{isIdle ? 'User is idle' : 'User is active'}</p>;
+};
+```
+
+## `useNotifications` Hook
+
+The `useNotifications` hook provides methods for showing notifications and requesting permission.
+
+### Example
+
+```jsx
+import { useNotifications } from 'react-hooks-simplified';
+
+const NotificationsComponent = () => {
+  const { permission, requestPermission, showNotification } = useNotifications();
+
+  return (
+    <div>
+      <button onClick={requestPermission}>
+        Request Notification Permission
+      </button>
+      <button
+        onClick={() => showNotification('Hello!', { body: 'This is a notification.' })}
+        disabled={permission !== 'granted'}
+      >
+        Show Notification
+      </button>
+    </div>
+  );
+};
+```
+
+## `useWindowSize` Hook
+
+The `useWindowSize` hook provides information about the current window size.
+
+### Example
+
+```jsx
+import { useWindowSize } from 'react-hooks-simplified';
+
+const WindowSizeComponent = () => {
+  const { width, height } = useWindowSize();
+
+  return (
+    <div>
+      <p>Width: {width}px</p>
+      <p>Height: {height}px</p>
+    </div>
+  );
+};
+```
+
+## `useDarkMode` Hook
+
+The `useDarkMode` hook provides methods for toggling between dark and light mode.
+
+### Example
+
+```jsx
+import { useDarkMode } from 'react-hooks-simplified';
+
+const DarkModeComponent = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
+  return (
+    <div>
+      <button onClick={toggleDarkMode}>
+        Switch to {isDarkMode ? 'Light' : 'Dark'} Mode
+      </button>
+    </div>
+  );
+};
+```
+
+## `useMediaQuery` Hook
+
+The `useMediaQuery` hook provides a way to detect media query matches.
+
+### Example
+
+```jsx
+import { useMediaQuery } from 'react-hooks-simplified';
+
+const MediaQueryComponent = () => {
+  const isLargeScreen = useMediaQuery('(min-width: 1024px)');
+
+  return <p>{isLargeScreen ? 'Large screen' : 'Small screen'}</p>;
 };
 ```
 ```
