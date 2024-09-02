@@ -9,10 +9,9 @@ You can install the package via npm:
 ```bash
 npm install react-browser-hooks
 
-## Available Hooks
 
 ## Available Hooks
-
+```bash
 - `useBattery`
 - `useGeolocation`
 - `useClipboard`
