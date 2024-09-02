@@ -28,5 +28,3 @@ npm install react-browser-hooks
 - [`useDarkMode`](#usedarkmode)
 - [`useMediaQuery`](#usemediaquery)
 ```
-
-This format separates the installation command into a distinct section and formats the list of hooks with links that could point to specific sections or details within your `README.md` file. Adjust the links to the appropriate sections in your documentation as needed!
