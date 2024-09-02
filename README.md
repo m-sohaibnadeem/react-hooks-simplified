@@ -8,3 +8,24 @@ You can install the package via npm:
 
 ```bash
 npm install react-browser-hooks
+
+## Available Hooks
+
+## Available Hooks
+
+- `useBattery`
+- `useGeolocation`
+- `useClipboard`
+- `useNetwork`
+- `useMediaDevices`
+- `useFullscreen`
+- `useSpeechSynthesis`
+- `useLocalStorage`
+- `useIntersectionObserver`
+- `useIdle`
+- `useNotifications`
+- `useWindowSize`
+- `useDarkMode`
+- `useMediaQuery`
+
+
