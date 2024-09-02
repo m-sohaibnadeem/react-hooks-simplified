@@ -1,5 +1,3 @@
-Here's an updated version of your `README.md` content with a separate installation section and the available hooks listed with links:
-
 ```markdown
 # React Browser Hooks 📦
 
